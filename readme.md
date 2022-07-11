@@ -1,6 +1,6 @@
-# Eldia
+# Roast My Jutsu
 
-## A 3d world project.
+## A MERN stack web app built with Three.JS!
 
 #### built off the material learned in the Three.js course by Bruno Simon.
 
@@ -10,8 +10,4 @@ https://threejs-journey.com/
 
 https://www.udemy.com/course/modern-react-front-to-back/
 
-#### to do
-
-- add player coordinates to mongo
-- add player character choice to mdb
-- add player health bar and energy bar
+####
