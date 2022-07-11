@@ -121,7 +121,11 @@ const VideoUpload = (props) => {
 				try {
 					const response = await axios.post('/api/videoThumbnail', variable)
 					if (response.data.success) {
-						console.log(response.data.fileDuration, response.data.thumbsFilePath)
+						console.log(
+							response.data.fileDuration,
+							response.data.thumbsFilePath,
+							`screenshots taken: ${response.data.screenShotsTaken}`
+						)
 						setDuration(response.data.fileDuration)
 						setThumbnail(response.data.thumbsFilePath)
 					}

@@ -59,6 +59,7 @@ router.post('/', async (req, res) => {
 				success: true,
 				thumbsFilePath: thumbsFilePath,
 				fileDuration: fileDuration,
+				screenShotsTaken: true,
 			})
 		})
 		.screenshots({
