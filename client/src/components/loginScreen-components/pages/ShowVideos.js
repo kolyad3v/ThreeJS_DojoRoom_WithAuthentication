@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import VideoCard from './VideoCard'
 
@@ -6,15 +6,15 @@ const ShowVideos = () => {
 	const [show, setShow] = useState(false)
 	const [videoData, setVideoData] = useState([])
 
-	let getData = async () => {
-		try {
-			const response = await axios.get('./api/video/getVideos')
-			console.log(response.data, 'response data')
-			setVideoData(response.data)
-		} catch (error) {
-			console.log(error)
-		}
-	}
+	// let getData = async () => {
+	// 	try {
+	// 		const response = await axios.get('./api/video/getVideos')
+	// 		console.log(response.data, 'response data')
+	// 		setVideoData(response.data)
+	// 	} catch (error) {
+	// 		console.log(error)
+	// 	}
+	// }
 	// useEffect(() => {
 	// 	// getData()
 	// }, [])

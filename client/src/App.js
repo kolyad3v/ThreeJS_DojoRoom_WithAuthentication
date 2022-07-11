@@ -9,7 +9,6 @@ import FullVideoPage from './components/loginScreen-components/pages/FullVideoPa
 import ItemState from './context/Item/ItemState'
 import AuthState from './context/auth/AuthState'
 import AlertState from './context/alert/AlertState'
-import StatsState from './context/stats/StatsState'
 
 import Register from './components/loginScreen-components/auth/Register'
 import Login from './components/loginScreen-components/auth/Login'
@@ -21,23 +20,21 @@ const App = () => {
 		<AuthState>
 			<ItemState>
 				<AlertState>
-					<StatsState>
-						<BrowserRouter>
-							<Fragment>
-								<Navbar />
-								<div className='container'>
-									<Alert />
-									<Routes>
-										<Route path='/' element={<PrivateRoute component={Home} />} />
-										<Route path='/about' element={<About />} />
-										<Route path='/register' element={<Register />} />
-										<Route path='/login' element={<Login />} />
-										<Route path='/:videoId' element={<FullVideoPage />} />
-									</Routes>
-								</div>
-							</Fragment>
-						</BrowserRouter>
-					</StatsState>
+					<BrowserRouter>
+						<Fragment>
+							<Navbar />
+							<div className='container'>
+								<Alert />
+								<Routes>
+									<Route path='/' element={<PrivateRoute component={Home} />} />
+									<Route path='/about' element={<About />} />
+									<Route path='/register' element={<Register />} />
+									<Route path='/login' element={<Login />} />
+									<Route path='/:videoId' element={<FullVideoPage />} />
+								</Routes>
+							</div>
+						</Fragment>
+					</BrowserRouter>
 				</AlertState>
 			</ItemState>
 		</AuthState>

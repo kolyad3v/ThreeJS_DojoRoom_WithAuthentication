@@ -13,7 +13,7 @@ const VideoCard = ({ videos }) => {
 				</div>
 
 				<a href={`/${_id}`}>
-					<img src={`http://localhost:3000/${thumbnail}`} alt='thumbnail' />
+					<img src={`http://localhost:5000/${thumbnail}`} alt='thumbnail' />
 				</a>
 				<span> date </span>
 				<p className='card-text'>{description}</p>
