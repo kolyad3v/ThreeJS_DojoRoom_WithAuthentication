@@ -110,28 +110,27 @@ const VideoUpload = (props) => {
 		try {
 			const res = await axios.post('/api/video', formData, config)
 			// console.log(res.data.success)
-			if (res.data.success) {
-				console.log(res)
-				let variable = {
-					filePath: res.data.filePath,
-					fileName: res.data.fileName,
-				}
 
-				setFilePath(res.data.filePath)
-				try {
-					const response = await axios.post('/api/videoThumbnail', variable)
-					if (response.data.success) {
-						console.log(
-							response.data.fileDuration,
-							response.data.thumbsFilePath,
-							`screenshots taken: ${response.data.screenShotsTaken}`
-						)
-						setDuration(response.data.fileDuration)
-						setThumbnail(response.data.thumbsFilePath)
-					}
-				} catch (error) {
-					console.log(error, 'thumbnail error')
+			console.log(res)
+			let variable = {
+				filePath: res.data.filePath,
+				fileName: res.data.fileName,
+			}
+
+			setFilePath(res.data.filePath)
+			try {
+				const response = await axios.post('/api/videoThumbnail', variable)
+				if (response.data.success) {
+					console.log(
+						response.data.fileDuration,
+						response.data.thumbsFilePath,
+						`screenshots taken: ${response.data.screenShotsTaken}`
+					)
+					setDuration(response.data.fileDuration)
+					setThumbnail(response.data.thumbsFilePath)
 				}
+			} catch (error) {
+				console.log(error, 'thumbnail error')
 			}
 		} catch (error) {
 			console.log(error)
