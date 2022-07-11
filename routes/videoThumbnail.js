@@ -22,8 +22,8 @@ const ffmpeg = require('fluent-ffmpeg')
 
 // const upload = multer({ storage: storage }).single('file')
 
-// @route       POST api/video
-// @desc        upload a video
+// @route       POST api/videoThumbnail
+// @desc        upload a video thumbnail
 // @access      private
 router.post('/', async (req, res) => {
 	console.log('post to videoThumbnail')
