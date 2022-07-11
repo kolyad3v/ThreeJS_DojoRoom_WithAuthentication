@@ -1,0 +1,4 @@
+{
+	"mongoURI": "mongodb+srv://danaherDisciple:oWlOqzFoFjR0Cd0f@jutsu.izginib.mongodb.net/?retryWrites=true&w=majority",
+	"jwtSecret": "blackrosedragonlvlsevenfireattribute"
+}
