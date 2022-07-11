@@ -1,4 +1,4 @@
 {
-	"mongoURI": "mongodb+srv://niko:niko@eldialogin.aj1ku.mongodb.net/Eldia?retryWrites=true&w=majority",
+	"mongoURI": "mongodb+srv://danaherDisciple:oWlOqzFoFjR0Cd0f@jutsu.izginib.mongodb.net/?retryWrites=true&w=majority",
 	"jwtSecret": "blackrosedragonlvlsevenfireattribute"
 }
