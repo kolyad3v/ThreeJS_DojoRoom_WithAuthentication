@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const multer = require('multer')
+// const multer = require('multer')
 const ffmpeg = require('fluent-ffmpeg')
 
 // const storage = multer.diskStorage({
@@ -44,8 +44,8 @@ router.post('/', async (req, res) => {
 
 	ffmpeg.ffprobe(req.body.filePath, function (err, metadata) {
 		console.dir(metadata)
-		console.log(metadata.format.duration)
-		fileDuration = metadata.format.duration
+
+		// fileDuration = metadata.format.duration
 	})
 
 	ffmpeg(req.body.filePath)
@@ -58,7 +58,7 @@ router.post('/', async (req, res) => {
 			return res.json({
 				success: true,
 				thumbsFilePath: thumbsFilePath,
-				fileDuration: fileDuration,
+				// fileDuration: fileDuration,
 				screenShotsTaken: true,
 			})
 		})
