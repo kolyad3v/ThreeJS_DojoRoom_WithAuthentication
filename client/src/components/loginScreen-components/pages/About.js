@@ -17,7 +17,7 @@ const About = () => {
 
 			<p className='my-1'>
 				3D MERN App with Three.js by <br />
-				<a href='https://twitter.com/kolyathedev'>@kolyathedev</a> <br />
+				<a href='https://www.instagram.com/kolyathedev/'>@kolyathedev</a> <br />
 				<a href='https://www.instagram.com/kibblebig/'>@kibblebig</a>
 			</p>
 		</div>

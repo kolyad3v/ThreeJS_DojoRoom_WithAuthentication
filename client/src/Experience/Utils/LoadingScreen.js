@@ -9,6 +9,7 @@ export default class LoadingScreen {
 		this.experience = new Experience()
 		this.scene = this.experience.scene
 		this.quotes = quotes
+
 		this.randomNumber = Math.floor(Math.random() * this.quotes.length)
 		this.randomQuote = this.quotes[this.randomNumber].text
 		this.author = this.quotes[this.randomNumber].author
@@ -17,7 +18,7 @@ export default class LoadingScreen {
 		this.loadingBarText = document.querySelector('.loadingText')
 		this.authorText = document.querySelector('.author')
 		this.loadingBarText.innerHTML = this.randomQuote
-		this.authorText.innerHTML = `- ${this.author}`
+		this.authorText.innerHTML = `- ${this.author} hello`
 
 		this.loadingManager = new THREE.LoadingManager(
 			// activate when loaded

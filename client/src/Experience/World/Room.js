@@ -49,7 +49,7 @@ export default class Room {
 		this.hour = this.dayOrNight.getHours()
 
 		// this.hour < 18 ? this.setModelDay() : this.setModelSunset()
-		this.setModelSunset()
+		this.setModelDay()
 
 		this.raycaster = new Raycaster(
 			this.resource_theDojo,
@@ -94,36 +94,36 @@ export default class Room {
 					this.temple = this.model_theDojo.children[i]
 					this.temple.material = this.roomBakes.blackOnlyDay.readyMateral
 					break
-				case 'merged_stripe_temple':
-					this.templeStripe = this.model_theDojo.children[i]
-					this.templeStripe.removeFromParent()
-					// this.templeStripe.material = this.roomBakes.blackOnlyDay.readyMateral
-					break
-				case 'merged_no_stripe':
-					this.templeStripeBareStripe = this.model_theDojo.children[i]
-					this.templeStripeBareStripe.removeFromParent()
-					// this.templeStripe.material = this.roomBakes.blackOnlyDay.readyMateral
-					break
-				case 'merged_1_stripe':
-					this.templeStripe1 = this.model_theDojo.children[i]
-					this.templeStripe1.removeFromParent()
-					// this.templeStripe.material = this.roomBakes.blackOnlyDay.readyMateral
-					break
-				case 'merged_2_stripe':
-					this.templeStripe2 = this.model_theDojo.children[i]
-					this.templeStripe2.removeFromParent()
-					// this.templeStripe.material = this.roomBakes.blackOnlyDay.readyMateral
-					break
-				case 'merged_3_stripe':
-					this.templeStripe3 = this.model_theDojo.children[i]
-					this.templeStripe3.removeFromParent()
-					// this.templeStripe.material = this.roomBakes.blackOnlyDay.readyMateral
-					break
-				case 'merged_4_stripe':
-					this.templeStripe4 = this.model_theDojo.children[i]
-					this.templeStripe4.removeFromParent()
-					// this.templeStripe.material = this.roomBakes.blackOnlyDay.readyMateral
-					break
+				// case 'merged_stripe_temple':
+				// 	this.templeStripe = this.model_theDojo.children[i]
+
+				// 	this.templeStripe.material = this.roomBakes.blackOnlyDay.readyMateral
+				// 	break
+				// case 'merged_no_stripe':
+				// 	this.templeStripeBareStripe = this.model_theDojo.children[i]
+				// 	this.templeStripeBareStripe.removeFromParent()
+				// 	// this.templeStripe.material = this.roomBakes.blackOnlyDay.readyMateral
+				// 	break
+				// case 'merged_1_stripe':
+				// 	this.templeStripe1 = this.model_theDojo.children[i]
+				// 	this.templeStripe1.removeFromParent()
+				// 	// this.templeStripe.material = this.roomBakes.blackOnlyDay.readyMateral
+				// 	break
+				// case 'merged_2_stripe':
+				// 	this.templeStripe2 = this.model_theDojo.children[i]
+				// 	this.templeStripe2.removeFromParent()
+				// 	// this.templeStripe.material = this.roomBakes.blackOnlyDay.readyMateral
+				// 	break
+				// case 'merged_3_stripe':
+				// 	this.templeStripe3 = this.model_theDojo.children[i]
+				// 	this.templeStripe3.removeFromParent()
+				// 	// this.templeStripe.material = this.roomBakes.blackOnlyDay.readyMateral
+				// 	break
+				// case 'merged_4_stripe':
+				// 	this.templeStripe4 = this.model_theDojo.children[i]
+				// 	this.templeStripe4.removeFromParent()
+				// 	// this.templeStripe.material = this.roomBakes.blackOnlyDay.readyMateral
+				// 	break
 				default:
 					break
 			}
