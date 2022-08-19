@@ -16,7 +16,11 @@ export default class RoomBakes {
 		this.leftSymbolDay = new TextureHelper('leftSymbolDay')
 		this.symbolDay = new TextureHelper('symbolDay')
 
-		this.blackOnlyDay = new TextureHelper('whiteOnlyDay')
+		// this.whiteOnlyDay = new TextureHelper('whiteOnlyDay')
+		// this.blueOnlyDay2 = new TextureHelper('blueOnlyDay2')
+		// this.purpleOnlyDay = new TextureHelper('purpleOnlyDay')
+		this.brownOnlyDay = new TextureHelper('brownOnlyDay')
+		// this.blackOnlyDay = new TextureHelper('blackOnlyDay')
 
 		// -> Night
 		// this.bakedSunset = new TextureHelper('bakedSunset')

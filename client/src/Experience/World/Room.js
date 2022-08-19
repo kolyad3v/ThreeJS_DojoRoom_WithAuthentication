@@ -64,7 +64,6 @@ export default class Room {
 		this.model_theDojo.traverse((c) => {
 			c.material = this.roomBakes.bakedDay.readyMateral
 		})
-
 		console.log(this.model_theDojo, 'room group')
 
 		for (let i = 0; i < this.model_theDojo.children.length; i++) {
@@ -90,40 +89,42 @@ export default class Room {
 					this.templeSymbols = this.model_theDojo.children[i]
 					this.templeSymbols.material = this.roomBakes.symbolDay.readyMateral
 					break
+
+				// TEMPLE AND STRIPES --->
 				case 'merged_no_stripe_temple':
 					this.temple = this.model_theDojo.children[i]
-					this.temple.material = this.roomBakes.blackOnlyDay.readyMateral
+					this.temple.material = this.roomBakes.brownOnlyDay.readyMateral
 					break
 				// case 'merged_stripe_temple':
 				// 	this.templeStripe = this.model_theDojo.children[i]
+				// 	// this.templeStripe.material = this.roomBakes.blackOnlyDay.readyMateral
 
-				// 	this.templeStripe.material = this.roomBakes.blackOnlyDay.readyMateral
 				// 	break
-				// case 'merged_no_stripe':
-				// 	this.templeStripeBareStripe = this.model_theDojo.children[i]
-				// 	this.templeStripeBareStripe.removeFromParent()
-				// 	// this.templeStripe.material = this.roomBakes.blackOnlyDay.readyMateral
-				// 	break
-				// case 'merged_1_stripe':
-				// 	this.templeStripe1 = this.model_theDojo.children[i]
-				// 	this.templeStripe1.removeFromParent()
-				// 	// this.templeStripe.material = this.roomBakes.blackOnlyDay.readyMateral
-				// 	break
-				// case 'merged_2_stripe':
-				// 	this.templeStripe2 = this.model_theDojo.children[i]
-				// 	this.templeStripe2.removeFromParent()
-				// 	// this.templeStripe.material = this.roomBakes.blackOnlyDay.readyMateral
-				// 	break
-				// case 'merged_3_stripe':
-				// 	this.templeStripe3 = this.model_theDojo.children[i]
-				// 	this.templeStripe3.removeFromParent()
-				// 	// this.templeStripe.material = this.roomBakes.blackOnlyDay.readyMateral
-				// 	break
-				// case 'merged_4_stripe':
-				// 	this.templeStripe4 = this.model_theDojo.children[i]
-				// 	this.templeStripe4.removeFromParent()
-				// 	// this.templeStripe.material = this.roomBakes.blackOnlyDay.readyMateral
-				// 	break
+				case 'merged_no_stripe':
+					this.templeStripeBareStripe = this.model_theDojo.children[i]
+					this.templeStripeBareStripe.removeFromParent()
+					// this.templeStripe.material = this.roomBakes.blackOnlyDay.readyMateral
+					break
+				case 'merged_1_stripe':
+					this.templeStripe1 = this.model_theDojo.children[i]
+					this.templeStripe1.removeFromParent()
+					// this.templeStripe.material = this.roomBakes.blackOnlyDay.readyMateral
+					break
+				case 'merged_2_stripe':
+					this.templeStripe2 = this.model_theDojo.children[i]
+					this.templeStripe2.removeFromParent()
+					// this.templeStripe.material = this.roomBakes.blackOnlyDay.readyMateral
+					break
+				case 'merged_3_stripe':
+					this.templeStripe3 = this.model_theDojo.children[i]
+					this.templeStripe3.removeFromParent()
+					// this.templeStripe.material = this.roomBakes.blackOnlyDay.readyMateral
+					break
+				case 'merged_4_stripe':
+					this.templeStripe4 = this.model_theDojo.children[i]
+					this.templeStripe4.removeFromParent()
+					// this.templeStripe.material = this.roomBakes.blackOnlyDay.readyMateral
+					break
 				default:
 					break
 			}

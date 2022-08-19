@@ -55,25 +55,25 @@ export default [
 		path: 'static/models/DAY/templeNoStripes/whiteOnly.jpg',
 	},
 	// {
-	// 	name: 'blueOnlyDay',
+	// 	name: 'blueOnlyDay2',
 	// 	type: 'texture',
-	// 	path: 'static/models/DAY/templeNoStripes/blueOnly.jpg',
+	// 	path: 'static/models/DAY/templeNoStripes/blueOnly2.jpg',
 	// },
 	// {
 	// 	name: 'purpleOnlyDay',
 	// 	type: 'texture',
 	// 	path: 'static/models/DAY/templeNoStripes/purpleOnly.jpg',
 	// },
-	// {
-	// 	name: 'brownOnlyDay',
-	// 	type: 'texture',
-	// 	path: 'static/models/DAY/templeNoStripes/brownOnly.jpg',
-	// },
 	{
-		name: 'blackOnlyDay',
+		name: 'brownOnlyDay',
 		type: 'texture',
-		path: 'static/models/DAY/templeNoStripes/blackOnly.jpg',
+		path: 'static/models/DAY/templeNoStripes/brownOnly.jpg',
 	},
+	// {
+	// 	name: 'blackOnlyDay',
+	// 	type: 'texture',
+	// 	path: 'static/models/DAY/templeNoStripes/blackOnly.jpg',
+	// },
 	// <---------- SUNSET ----------->
 	// {
 	// 	name: 'bakedSunset',
