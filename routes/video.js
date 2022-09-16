@@ -32,8 +32,8 @@ const upload = multer({ storage: storage }).single('file')
 // @desc        upload a video
 // @access      private
 router.post('/', async (req, res) => {
-	// console.log(req)
 	upload(req, res, (err) => {
+		console.log(req, 'data in upload')
 		if (err) {
 			return res.json({ success: false, err })
 		}

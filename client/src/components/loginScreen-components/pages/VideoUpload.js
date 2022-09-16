@@ -106,7 +106,7 @@ const VideoUpload = (props) => {
 		}
 		console.log(files)
 		formData.append('file', files[0])
-
+		console.log(formData)
 		try {
 			const res = await axios.post('/api/video', formData, config)
 			// console.log(res.data.success)
