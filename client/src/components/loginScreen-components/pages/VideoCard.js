@@ -1,19 +1,19 @@
 import React from 'react'
 
 const VideoCard = ({ videos }) => {
-	const { title, duration, description, thumbnail, _id } = videos
+	const { title, duration, description, _id } = videos
 
 	return (
 		<div className='card'>
 			<div className='card-body'>
-				<h5 className='card-title'> {title} </h5>
+				<h4 className='card-title'> {title} </h4>
 
 				<div className='duration'>
 					<span>{duration}</span>
 				</div>
 
 				<a href={`/${_id}`}>
-					<img src={`http://localhost:5000/${thumbnail}`} alt='thumbnail' />
+					<h5>{_id}</h5>
 				</a>
 				<span> date </span>
 				<p className='card-text'>{description}</p>

@@ -30,7 +30,6 @@ const VideoUpload = (props) => {
 	const [Categories, setCategories] = useState('Film & Animation')
 	const [FilePath, setFilePath] = useState('')
 	const [Duration, setDuration] = useState('')
-	const [Thumbnail, setThumbnail] = useState('')
 
 	const handleChangeTitle = (event) => {
 		setTitle(event.currentTarget.value)
@@ -77,7 +76,6 @@ const VideoUpload = (props) => {
 			filePath: FilePath,
 			category: Categories,
 			duration: Duration,
-			thumbnail: Thumbnail,
 		}
 
 		try {
@@ -112,83 +110,12 @@ const VideoUpload = (props) => {
 			// console.log(res.data.success)
 
 			console.log(res)
-			let variable = {
-				filePath: res.data.filePath,
-				fileName: res.data.fileName,
-			}
 
 			setFilePath(res.data.filePath)
-			try {
-				const response = await axios.post('/api/videoThumbnail', variable)
-				if (response.data.success) {
-					console.log(
-						response.data.fileDuration,
-						response.data.thumbsFilePath,
-						`screenshots taken: ${response.data.screenShotsTaken}`
-					)
-					setDuration(response.data.fileDuration)
-					setThumbnail(response.data.thumbsFilePath)
-				}
-			} catch (error) {
-				console.log(error, 'thumbnail error')
-			}
 		} catch (error) {
 			console.log(error)
 		}
-		// await axios
-		// 	.post('/api/video/uploadFiles', formData, config)
-		// 	.then((response) => {
-		// 		if (response.data.success) {
-		// 			console.log(response)
-		// 			// let variable = {
-		// 			// 	filePath: response.data.filePath,
-		// 			// 	fileName: response.data.fileName,
-		// 			// }
-
-		// 			// setFilePath(response.data.filePath)
-
-		// 			// //gerenate thumbnail with this filepath !
-
-		// 			// axios.post('/api/video/thumbnail', variable)
-		// 			//     .then(response => {
-		// 			//         if (response.data.success) {
-		// 			//             setDuration(response.data.fileDuration)
-		// 			//             setThumbnail(response.data.thumbsFilePath)
-		// 			//         } else {
-		// 			//             alert('Failed to make the thumbnails');
-		// 			//         }
-		// 			//     })
-		// 		} else {
-		// 			console.log('failed to save the video in server')
-		// 		}
-		// 	})
 	}
-
-	// const dropBox = (
-	// 	<Dropzone onDrop={onDrop} multiple={false} maxSize={800000000}>
-	// 		{({ getRootProps, getInputProps }) => (
-	// 			<div
-	// 				style={{
-	// 					width: '300px',
-	// 					height: '240px',
-	// 					border: '1px solid lightgray',
-	// 					display: 'flex',
-	// 					alignItems: 'center',
-	// 					justifyContent: 'center',
-	// 				}}
-	// 				{...getRootProps()}
-	// 			>
-	// 				<input {...getInputProps()} />
-	// 			</div>
-	// 		)}
-	// 	</Dropzone>
-	// )
-
-	// const thumbRightHere = Thumbnail !== '' && (
-	// 	<div>
-	// 		<img src={`http://localhost:3000/${Thumbnail}`} alt='haha' />
-	// 	</div>
-	// )
 
 	return (
 		<div className='text-center'>
@@ -210,11 +137,6 @@ const VideoUpload = (props) => {
 							</div>
 						)}
 					</Dropzone>
-					{Thumbnail !== '' && (
-						<div>
-							<img src={`http://localhost:3000/${Thumbnail}`} alt='haha' />
-						</div>
-					)}
 				</div>
 
 				<br />

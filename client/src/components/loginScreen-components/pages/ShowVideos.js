@@ -6,19 +6,6 @@ const ShowVideos = () => {
 	const [show, setShow] = useState(false)
 	const [videoData, setVideoData] = useState([])
 
-	// let getData = async () => {
-	// 	try {
-	// 		const response = await axios.get('./api/video/getVideos')
-	// 		console.log(response.data, 'response data')
-	// 		setVideoData(response.data)
-	// 	} catch (error) {
-	// 		console.log(error)
-	// 	}
-	// }
-	// useEffect(() => {
-	// 	// getData()
-	// }, [])
-
 	const onclick = async () => {
 		if (show) {
 			setShow(!show)
@@ -35,10 +22,16 @@ const ShowVideos = () => {
 	}
 
 	// console.log(displayVideos)
-	const displayVideos = videoData.map((videos, index) => (
-		<VideoCard key={videos._id} videos={videos} />
-	))
-	console.log(videoData, 'state data')
+	// const displayVideos = videoData.map((videos, index) => (
+	// 	<VideoCard key={videos._id} videos={videos} />
+	// ))
+
+	const displayVideos = (
+		<video id='videoPlayer' width='650' controls muted='muted' autoplay>
+			<source src='api/video/mongo-video' type='video/mp4' />
+		</video>
+	)
+	// console.log(videoData, 'state data')
 
 	return (
 		<div>

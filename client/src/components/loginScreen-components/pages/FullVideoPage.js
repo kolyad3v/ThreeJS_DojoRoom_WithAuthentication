@@ -13,6 +13,11 @@ const FullVideoPage = () => {
 	const [video, setVideo] = useState([])
 
 	let getVideo = async () => {
+		let config = {
+			headers: {
+				'content-type': 'multipart/formData',
+			},
+		}
 		try {
 			const res = await axios.post('./api/video/getVideo', videoVariable)
 			console.log(res.data)
@@ -37,12 +42,12 @@ const FullVideoPage = () => {
 				</div>
 				<div className='row'>
 					<div className='col-sm-12'>
-						<video
-							style={{ width: '100%' }}
-							src={`http://localhost:5000/${video.filePath}`}
-							controls
-							type='video/mp4'
-						></video>
+						<video controls muted>
+							<source
+								src={`http://localhost:5000/${video.filePath}`}
+								type='video/mp4'
+							></source>
+						</video>
 					</div>
 				</div>
 				<div className='row'>
