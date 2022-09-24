@@ -16,7 +16,7 @@ const Video = require('../models/Video')
 
 const storage = multer.diskStorage({
 	destination: function (req, file, cb) {
-		cb(null, 'uploads/')
+		cb(null, './uploads/')
 	},
 	filename: function (req, file, cb) {
 		// const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9)
@@ -39,13 +39,15 @@ const upload = multer({ storage: storage }).single('file')
 router.post('/', auth, async (req, res) => {
 	upload(req, res, (err) => {
 		if (err) {
-			return res.json({ success: false, err })
+			return res.json({ success: false, error: err, fail: 'failed in multer' })
 		}
 		mongodb.MongoClient.connect(url, function (error, client) {
 			if (error) {
+				console.log(error)
 				res.json(error)
 				return
 			}
+
 			// connect to the videos database
 			const db = client.db('videos')
 
