@@ -23,6 +23,9 @@ export default class Raycaster extends EventEmitter {
 		this.gongHovered = false
 		this.templeSymbolHovered = false
 		this.grabOpen = true
+
+		// React Components Show/Hide
+		this.videoForm = document.getElementById('videoForm')
 		// create Raycaster
 		this.createRaycaster()
 
@@ -53,7 +56,9 @@ export default class Raycaster extends EventEmitter {
 		// interactions
 		// do the same for other objects when ready -->
 		document.querySelector('.webgl').addEventListener('click', () => {
-			this.tapeHovered ? console.log('clicked tape') : console.log('null')
+			this.tapeHovered
+				? this.videoForm.classList.remove('hide')
+				: this.videoForm.classList.add('hide')
 		})
 
 		document.querySelector('.webgl').addEventListener('mousedown', () => {
@@ -115,7 +120,7 @@ export default class Raycaster extends EventEmitter {
 					this.gongHovered = false
 					this.templeSymbolHovered = false
 
-					this.grabOpen ? (this.webglStyle.cursor = 'grab') : console.log('null')
+					this.grabOpen && (this.webglStyle.cursor = 'grab')
 
 					break
 				default:

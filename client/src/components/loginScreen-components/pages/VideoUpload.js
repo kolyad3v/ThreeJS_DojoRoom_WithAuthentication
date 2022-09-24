@@ -118,7 +118,7 @@ const VideoUpload = (props) => {
 	}
 
 	return (
-		<div className='text-center'>
+		<div className={`text-center`}>
 			<Title level={2}> Upload Video</Title>
 
 			<Form onSubmit={onSubmit}>
