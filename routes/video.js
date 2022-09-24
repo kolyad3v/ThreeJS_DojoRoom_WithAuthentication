@@ -16,7 +16,7 @@ const Video = require('../models/Video')
 
 const storage = multer.diskStorage({
 	destination: function (req, file, cb) {
-		cb(null, './uploads/')
+		cb(null, './')
 	},
 	filename: function (req, file, cb) {
 		// const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9)
@@ -41,36 +41,40 @@ router.post('/', auth, async (req, res) => {
 		if (err) {
 			return res.json({ success: false, error: err, fail: 'failed in multer' })
 		}
-		mongodb.MongoClient.connect(url, function (error, client) {
-			if (error) {
-				console.log(error)
-				res.json(error)
-				return
-			}
+		try {
+			console.log('trying to send vid to fs stream ')
+			mongodb.MongoClient.connect(url, function (error, client) {
+				if (error) {
+					res.json(error)
+					return
+				}
 
-			// connect to the videos database
-			const db = client.db('videos')
+				// connect to the videos database
+				const db = client.db('videos')
 
-			// Create GridFS bucket to upload a large file
-			const bucket = new mongodb.GridFSBucket(db)
+				// Create GridFS bucket to upload a large file
+				const bucket = new mongodb.GridFSBucket(db)
 
-			// create upload stream using GridFS bucket
-			const videoUploadStream = bucket.openUploadStream('footage')
+				// create upload stream using GridFS bucket
+				const videoUploadStream = bucket.openUploadStream('footage')
 
-			// You can put your file instead of bigbuck.mp4
-			const videoReadStream = fs.createReadStream(res.req.file.path)
+				// You can put your file instead of bigbuck.mp4
+				const videoReadStream = fs.createReadStream(res.req.file.path)
 
-			// Finally Upload!
-			videoReadStream.pipe(videoUploadStream)
+				// Finally Upload!
+				videoReadStream.pipe(videoUploadStream)
 
-			// All done!
-			res.status(200).json({
-				success: true,
-				filePath: res.req.file.path,
-				fileName: res.req.file.filename,
-				student: req.student.id,
+				// All done!
+				res.status(200).json({
+					success: true,
+					filePath: res.req.file.path,
+					fileName: res.req.file.filename,
+					student: req.student.id,
+				})
 			})
-		})
+		} catch (error) {
+			res.status(400).json({ error })
+		}
 	})
 })
 
