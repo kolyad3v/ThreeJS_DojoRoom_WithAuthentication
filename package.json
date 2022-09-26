@@ -18,6 +18,7 @@
 	"author": "nikodev",
 	"license": "MIT",
 	"dependencies": {
+		"@mui/icons-material": "^5.10.6",
 		"bcryptjs": "^2.4.3",
 		"body-parser": "^1.20.0",
 		"config": "^3.1.0",

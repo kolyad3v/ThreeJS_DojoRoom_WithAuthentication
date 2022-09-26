@@ -1,10 +1,11 @@
 import { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-
 import { useAuth, logoutStudent } from '../../../context/auth/AuthState'
+import { Stack, Grid } from '@mui/material'
+import Icon from '@mui/material/Icon'
 
-const Navbar = ({ title }) => {
+const Navbar = () => {
 	const [authState, authDispatch] = useAuth()
 	const { student, isAuthenticated } = authState
 
@@ -14,35 +15,50 @@ const Navbar = ({ title }) => {
 	console.log(student)
 
 	const authLinks = (
-		<Fragment>
-			<li>Hello {student && student.name}</li>
-			<li>
-				<a href='#!' onClick={onLogout}>
-					Logout
-				</a>
-			</li>
-		</Fragment>
+		<Grid container>
+			<Grid item xs={1}></Grid>
+			<Grid item xs={10}>
+				<h3>Hello {student && student.name}.</h3>
+			</Grid>
+
+			<Grid item xs={1} sx={{}}>
+				<Icon fontSize='small' sx={{ cursor: 'pointer' }} onClick={onLogout}>
+					logout
+				</Icon>
+			</Grid>
+		</Grid>
 	)
 
 	const guestLinks = (
-		<Fragment>
-			<li>
-				<Link to='/register'>Register</Link>
-			</li>
-			<li>
-				<Link to='/login'>Login</Link>
-			</li>
-			<li>
-				<Link to='/about'>About</Link>
-			</li>
-		</Fragment>
+		<>
+			<Link to='/register'>Register</Link>
+
+			<Link to='/login'>Login</Link>
+
+			<Link to='/about'>About</Link>
+		</>
 	)
 
 	return (
-		<div className='navbar '>
-			<h1>{title}</h1>
-			<ul>{isAuthenticated ? authLinks : guestLinks}</ul>
-		</div>
+		<Stack
+			direction='row'
+			alignItems='center'
+			p={1}
+			sx={{
+				color: 'white',
+				position: 'sticky',
+				background: '#0a1929b7',
+				top: 0,
+				justifyContent: 'space-around',
+				transition: '0.5s ease',
+
+				'&:hover': {
+					background: '#0a1929',
+				},
+			}}
+		>
+			{isAuthenticated ? authLinks : guestLinks}
+		</Stack>
 	)
 }
 

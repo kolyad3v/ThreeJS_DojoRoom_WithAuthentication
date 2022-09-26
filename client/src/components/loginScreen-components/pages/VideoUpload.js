@@ -1,11 +1,19 @@
 import React, { useState } from 'react'
-import { Typography, Button, Form, Input } from 'antd'
+
 import Dropzone from 'react-dropzone'
 import axios from 'axios'
 import { useAuth } from '../../../context/auth/AuthState'
-
-const { Title } = Typography
-const { TextArea } = Input
+import Icon from '@mui/material/Icon'
+import {
+	Container,
+	Typography,
+	Button,
+	TextField,
+	Select,
+	MenuItem,
+	InputLabel,
+	Grid,
+} from '@mui/material'
 
 const Private = [
 	{ value: 0, label: 'Private' },
@@ -21,12 +29,12 @@ const Catogory = [
 ]
 
 const VideoUpload = (props) => {
-	const [authState, authDispatch] = useAuth()
+	const [authState] = useAuth()
 	const { student } = authState
 
 	const [title, setTitle] = useState('')
 	const [Description, setDescription] = useState('')
-	const [privacy, setPrivacy] = useState(0)
+	const [privacy, setPrivacy] = useState('Private')
 	const [Categories, setCategories] = useState('Film & Animation')
 	const [FilePath, setFilePath] = useState('')
 	const [Duration, setDuration] = useState('')
@@ -36,13 +44,11 @@ const VideoUpload = (props) => {
 	}
 
 	const handleChangeDecsription = (event) => {
-		console.log(event.currentTarget.value)
-
 		setDescription(event.currentTarget.value)
 	}
 
 	const handleChangeOne = (event) => {
-		setPrivacy(event.currentTarget.value)
+		setPrivacy(event.target.value)
 	}
 
 	const handleChangeTwo = (event) => {
@@ -116,66 +122,113 @@ const VideoUpload = (props) => {
 			console.log(error)
 		}
 	}
+	let videoForm = document.getElementById('videoForm')
+	const hide = () => {
+		videoForm.classList.add('hide')
+	}
 
 	return (
-		<div className={`text-center`}>
-			<Title level={2}> Upload Video</Title>
+		<Container
+			maxWidth='sm'
+			sx={{
+				background: '#fff',
+				borderRadius: '5px',
+				height: 'auto',
+				padding: '20px',
+				display: 'flex',
+				flexDirection: 'column',
+				justifyContent: 'space-between',
+				marginTop: '20px',
+			}}
+		>
+			<Grid container spacing={2}>
+				<Grid item xs={11}>
+					<Typography variant='h4' component='h2'>
+						UploadVideo
+					</Typography>
+				</Grid>
+				<Grid item xs={1}>
+					<Icon color='error' sx={{ cursor: 'pointer' }} onClick={hide}>
+						close
+					</Icon>
+				</Grid>
+			</Grid>
+			<Dropzone onDrop={onDrop} multiple={false} maxSize={800000000}>
+				{({ getRootProps, getInputProps }) => (
+					<div
+						style={{
+							marginLeft: 'auto',
+							marginRight: 'auto',
+							width: '100px',
+							height: '100px',
+							border: '1px solid lightgray',
+							cursor: 'pointer',
+							display: 'flex',
+							justifyContent: 'center',
+							alignItems: 'center',
+						}}
+						{...getRootProps()}
+					>
+						<Icon>add</Icon>
+						<input {...getInputProps()} />
+					</div>
+				)}
+			</Dropzone>
 
-			<Form onSubmit={onSubmit}>
-				<div className='grid-2'>
-					<Dropzone onDrop={onDrop} multiple={false} maxSize={800000000}>
-						{({ getRootProps, getInputProps }) => (
-							<div
-								style={{
-									width: '300px',
-									height: '240px',
-									border: '1px solid lightgray',
-								}}
-								{...getRootProps()}
-							>
-								<input {...getInputProps()} />
-							</div>
-						)}
-					</Dropzone>
-				</div>
+			<TextField
+				label='Title'
+				variant='outlined'
+				onChange={handleChangeTitle}
+				value={title}
+				fullWidth
+				margin='normal'
+			/>
+			{/* <InputLabel id='Category'>Category</InputLabel>
+			<Select
+				labelId='Category'
+				id=''
+				label='Category'
+				onChange={handleChangeOne}
+				margin='normal'
+				value={Categories}
+			>
+				<MenuItem value={10}>Ten</MenuItem>
+				<MenuItem value={20}>Twenty</MenuItem>
+				<MenuItem value={30}>Thirty</MenuItem>
+			</Select> */}
+			<InputLabel id='Privacy'>Privacy</InputLabel>
 
-				<br />
-				<br />
+			<Select
+				labelId='Privacy'
+				id=''
+				label='Privacy'
+				value={privacy}
+				onChange={handleChangeOne}
+			>
+				<MenuItem value='Private'>Private</MenuItem>
+				<MenuItem value='Public'>Public</MenuItem>
+			</Select>
 
-				<label>Title</label>
-				<Input onChange={handleChangeTitle} value={title} />
-				<br />
-				<br />
-				<label>Description</label>
-				<TextArea onChange={handleChangeDecsription} value={Description} />
-				<br />
-				<br />
+			<TextField
+				id='outlined-basic'
+				label='Description'
+				variant='outlined'
+				onChange={handleChangeDecsription}
+				value={Description}
+				multiline
+				fullWidth
+				minRows={3}
+				margin='dense'
+			/>
 
-				<select onChange={handleChangeOne}>
-					{Private.map((item, index) => (
-						<option key={index} value={item.value}>
-							{item.label}
-						</option>
-					))}
-				</select>
-				<br />
-				<br />
-
-				<select onChange={handleChangeTwo}>
-					{Catogory.map((item, index) => (
-						<option key={index} value={item.label}>
-							{item.label}
-						</option>
-					))}
-				</select>
-				<br />
-				<br />
-
-				<Button type='primary' size='large' onClick={onSubmit}>
-					Submit
-				</Button>
-			</Form>
-		</div>
+			<Button
+				variant='contained'
+				sx={{ backgroundColor: 'black' }}
+				onClick={onSubmit}
+			>
+				Submit
+			</Button>
+		</Container>
 	)
 }
 

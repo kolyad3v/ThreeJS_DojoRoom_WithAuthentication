@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { Navigate } from 'react-router-dom'
+import { Box, TextField, Button } from '@mui/material'
 
 import AlertContext from '../../../context/alert/alertContext'
 import {
@@ -55,9 +56,47 @@ const Login = () => {
 	if (isAuthenticated) return <Navigate to='/' />
 
 	return (
-		<div className='form-container'>
-			<form onSubmit={onSubmit}>
-				<div className='form-group'>
+		<Box
+			sx={{
+				margin: 'auto',
+				width: '50vw',
+				display: 'flex',
+				flexDirection: 'column',
+				justifyContent: 'space-between',
+			}}
+		>
+			<TextField
+				id='email'
+				label='Email'
+				variant='filled'
+				required
+				placeholder='Email'
+				value={email}
+				onChange={onChange}
+				margin='normal'
+				name='email'
+			/>
+			<TextField
+				id='password'
+				label='Password'
+				variant='filled'
+				required
+				type={'password'}
+				placeholder='Password'
+				value={password}
+				onChange={onChange}
+				margin='normal'
+				name='password'
+			/>
+			<Button
+				variant='contained'
+				margin='normal'
+				onClick={onSubmit}
+				sx={{ backgroundColor: 'black' }}
+			>
+				Log In
+			</Button>
+			{/* <div className='form-group'>
 					<label htmlFor='email'> Email</label>
 					<input type='email' name='email' value={email} onChange={onChange} />
 					<label htmlFor='password'> Password</label>
@@ -69,8 +108,8 @@ const Login = () => {
 					/>
 				</div>
 				<input type='submit' value='Login' className='btn btn-primary btn-block' />
-			</form>
-		</div>
+			</form> */}
+		</Box>
 	)
 }
 

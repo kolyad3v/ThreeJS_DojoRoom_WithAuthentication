@@ -18,7 +18,7 @@ export default class LoadingScreen {
 		this.loadingBarText = document.querySelector('.loadingText')
 		this.authorText = document.querySelector('.author')
 		this.loadingBarText.innerHTML = this.randomQuote
-		this.authorText.innerHTML = `- ${this.author} hello`
+		this.authorText.innerHTML = `- ${this.author}`
 
 		this.loadingManager = new THREE.LoadingManager(
 			// activate when loaded

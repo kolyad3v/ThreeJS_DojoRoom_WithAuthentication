@@ -4,6 +4,15 @@ import { Navigate } from 'react-router-dom'
 import AlertContext from '../../../context/alert/alertContext'
 
 import { useAuth, clearErrors, register } from '../../../context/auth/AuthState'
+import { Box, TextField } from '@mui/material'
+import {
+	Container,
+	Typography,
+	Button,
+	Select,
+	MenuItem,
+	InputLabel,
+} from '@mui/material'
 
 const Register = (props) => {
 	const alertContext = useContext(AlertContext)
@@ -61,49 +70,94 @@ const Register = (props) => {
 	// if (isAuthenticated) return <Navigate to='/experience' />
 
 	return (
-		<div className='form-container'>
-			<form onSubmit={onSubmit}>
-				<div className='form-group'>
-					<label htmlFor='name'>Name</label>
-					<input type='text' name='name' value={name} onChange={onChange} />
-					<label htmlFor='email'> Email</label>
-					<input
-						type='email'
-						name='email'
-						value={email}
-						onChange={onChange}
-						required
-					/>
-					<label htmlFor='belt'> Belt</label>
-					<input type='text' name='belt' value={belt} onChange={onChange} required />
-					<label htmlFor='club'> Club</label>
-					<input type='text' name='club' value={club} onChange={onChange} required />
-					<label htmlFor='password'> Password</label>
-					<input
-						type='password'
-						name='password'
-						value={password}
-						onChange={onChange}
-						required
-						minLength='6'
-					/>
-					<label htmlFor='password2'> Confirm Password</label>
-					<input
-						type='password'
-						name='password2'
-						value={password2}
-						onChange={onChange}
-						required
-						minLength='6'
-					/>
-				</div>
-				<input
-					type='submit'
-					value='Register'
-					className='btn btn-primary btn-block'
-				/>
-			</form>
-		</div>
+		<Box
+			sx={{
+				margin: 'auto',
+				width: '50vw',
+				display: 'flex',
+				flexDirection: 'column',
+				justifyContent: 'space-between',
+			}}
+		>
+			<TextField
+				id='name'
+				label='Name'
+				variant='filled'
+				required
+				placeholder='Name'
+				value={name}
+				onChange={onChange}
+				margin='normal'
+				name='name'
+			/>
+			<TextField
+				id='email'
+				label='Email'
+				variant='filled'
+				required
+				placeholder='Email'
+				value={email}
+				onChange={onChange}
+				margin='normal'
+				name='email'
+			/>
+			<TextField
+				id='belt'
+				label='Belt'
+				variant='filled'
+				required
+				placeholder='Belt'
+				value={belt}
+				onChange={onChange}
+				margin='normal'
+				name='belt'
+			/>
+			<TextField
+				id='club'
+				label='club'
+				variant='filled'
+				required
+				placeholder='club'
+				value={club}
+				onChange={onChange}
+				margin='normal'
+				name='club'
+			/>
+
+			<TextField
+				id='password'
+				label='Password'
+				variant='filled'
+				required
+				type={'password'}
+				placeholder='Password'
+				value={password}
+				onChange={onChange}
+				margin='normal'
+				name='password'
+			/>
+			<TextField
+				id='password2'
+				label='Password'
+				variant='filled'
+				required
+				type={'password'}
+				placeholder='Confirm Password'
+				value={password2}
+				onChange={onChange}
+				margin='normal'
+				minLength={6}
+				name='password2'
+			/>
+			<Button
+				variant='contained'
+				margin='normal'
+				onClick={onSubmit}
+				sx={{ backgroundColor: 'black' }}
+			>
+				Register
+			</Button>
+		</Box>
 	)
 }
 

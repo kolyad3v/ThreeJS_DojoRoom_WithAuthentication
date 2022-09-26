@@ -1,6 +1,14 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import VideoCard from './VideoCard'
+import {
+	Container,
+	Typography,
+	Button,
+	TextField,
+	Select,
+	MenuItem,
+} from '@mui/material'
 
 const ShowVideos = () => {
 	const [show, setShow] = useState(false)
@@ -27,20 +35,24 @@ const ShowVideos = () => {
 	// ))
 
 	const displayVideos = (
-		<video id='videoPlayer' width='650' controls muted='muted' autoplay>
+		<video id='videoPlayer' width='650' controls muted='muted'>
 			<source src='api/video/mongo-video' type='video/mp4' />
 		</video>
 	)
 	// console.log(videoData, 'state data')
 
 	return (
-		<div>
-			<button className='btn btn-primary' onClick={onclick}>
-				showVideos
-			</button>
+		<Container maxWidth='lg'>
+			<Button
+				variant='contained'
+				sx={{ backgroundColor: 'black' }}
+				onClick={onclick}
+			>
+				Open Archive
+			</Button>
 			<hr />
 			<div className='grid-3 text-center'> {show ? displayVideos : null} </div>
-		</div>
+		</Container>
 	)
 }
 
